@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Proj Description: -
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Main Page (app/page.js)
+   Renders the DraggableForm component in a centered container.
+2. Draggable Form (DraggableForm.jsx)
+   State Management: Manages states like form title, fields, preview data, modal visibility, success message, and submitted data.
+   Core Features:
+   Add Field: Allows adding fields with default configurations.
+   Drag-and-Drop: Uses @dnd-kit/core for rearranging fields in the form.
+   Field Validation: Ensures required fields are filled before submission.
+   Preview & Submission: Displays a preview modal and handles form submission.
+   Form Completeness: Calculates the percentage of completed fields.
+   Buttons: Save as Draft and Publish Form, both depend on field completeness.
+3. Custom Input (Input.jsx)
+   Dynamic Input Types: Renders different input types (short, long, single select, URL, date) based on the field's type.
+   Drag-and-Drop Support: Integrates with @dnd-kit/core for sorting.
+   Custom Field Options: Handles field-specific configurations like options for single select.
+   Validation: Highlights errors if fields are left empty and are marked required.
+4. Custom Select (CustomSelect.jsx)
+   A dropdown for selecting input types (short, long, single select, etc.).
+   Dynamic Options: The options displayed depend on the field type.
+   Handles toggling and type selection.
+5. Modal (Modal.jsx)
+   A reusable modal component for displaying content.
+   Props: Accepts isOpen, onClose, and children.
+   Key Libraries and Techniques Used:
+   React: Functional components and hooks for state management.
+   @dnd-kit: Drag-and-drop library.
+   TailwindCSS: For styling.
