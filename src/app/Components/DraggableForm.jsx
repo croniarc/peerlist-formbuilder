@@ -39,7 +39,7 @@ const DraggableForm = () => {
         return fields.length > 0 ? Math.round((filledFields / fields.length) * 100) : 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validate fields and mark errors for empty required fields
@@ -55,14 +55,40 @@ const DraggableForm = () => {
             return;
         }
 
-        // Collect form data if all fields are valid
+        // Collect form data for preview and submission
         const formData = validatedFields.reduce((acc, field) => {
             acc[field.label] = field.type === "single" ? field.selectedOption : field.value;
             return acc;
         }, {});
 
+        // Set the form data for preview
         setPreview(formData);
-        setSuccessMessage("");
+
+        // Save the form data via the API
+        try {
+            const response = await fetch('/api/save-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log("Form data saved successfully:", result);
+
+                // Clear success message for preview submit
+                setSuccessMessage("");
+
+                // Optional: Reset fields or retain them for editing after save
+            } else {
+                throw new Error("Failed to save form data");
+            }
+        } catch (error) {
+            console.error("Error submitting form data:", error);
+            setSuccessMessage("Failed to save form data.");
+        }
     };
 
 

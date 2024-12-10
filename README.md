@@ -1,29 +1,54 @@
-Proj Description: -
+Draggable Form Builder
+A dynamic form builder application with drag-and-drop capabilities, developed using Next.js, React, @dnd-kit, and TailwindCSS. This project allows users to create, preview, and save customizable forms with ease.
 
-1. Main Page (app/page.js)
-   Renders the DraggableForm component in a centered container.
-2. Draggable Form (DraggableForm.jsx)
-   State Management: Manages states like form title, fields, preview data, modal visibility, success message, and submitted data.
-   Core Features:
-   Add Field: Allows adding fields with default configurations.
-   Drag-and-Drop: Uses @dnd-kit/core for rearranging fields in the form.
-   Field Validation: Ensures required fields are filled before submission.
-   Preview & Submission: Displays a preview modal and handles form submission.
-   Form Completeness: Calculates the percentage of completed fields.
-   Buttons: Save as Draft and Publish Form, both depend on field completeness.
-3. Custom Input (Input.jsx)
-   Dynamic Input Types: Renders different input types (short, long, single select, URL, date) based on the field's type.
-   Drag-and-Drop Support: Integrates with @dnd-kit/core for sorting.
-   Custom Field Options: Handles field-specific configurations like options for single select.
-   Validation: Highlights errors if fields are left empty and are marked required.
-4. Custom Select (CustomSelect.jsx)
-   A dropdown for selecting input types (short, long, single select, etc.).
-   Dynamic Options: The options displayed depend on the field type.
-   Handles toggling and type selection.
-5. Modal (Modal.jsx)
-   A reusable modal component for displaying content.
-   Props: Accepts isOpen, onClose, and children.
-   Key Libraries and Techniques Used:
-   React: Functional components and hooks for state management.
-   @dnd-kit: Drag-and-drop library.
-   TailwindCSS: For styling.
+Features
+Dynamic Form Creation:
+
+Add various input types such as short answer, long answer, single select, URL, and date.
+Drag-and-drop functionality to reorder form fields.
+Custom Input Components:
+
+Each input field supports real-time updates for its type, label, and values.
+Includes single-select fields with dynamic options.
+Preview & Submission:
+
+Live preview of the form to verify field values before submission.
+Calculates and displays form completeness percentage.
+Form Validation:
+
+Ensures required fields are filled before submission.
+Highlights missing or invalid fields with visual indicators.
+API Integration:
+
+Saves form data to a mock API endpoint (/api/save-form).
+API handles POST requests and logs data (replaceable with database logic).
+Responsive & Accessible:
+
+Fully responsive design using TailwindCSS.
+Focus on clean, minimal, and intuitive UI/UX.
+Project Structure
+app/page.js: Main entry point rendering the DraggableForm component.
+components/DraggableForm.jsx: Core component handling state management, validation, drag-and-drop, and API calls.
+components/Input.jsx: Customizable input field supporting different types and configurations.
+components/CustomSelect.jsx: Dropdown for selecting field types with icons and labels.
+components/Modal.jsx: Reusable modal component for form preview and submission confirmation.
+app/api/save-form/route.js: API endpoint for saving form data.
+Technologies Used
+Next.js (App Router)
+React (with hooks)
+@dnd-kit (drag-and-drop functionality)
+TailwindCSS (responsive styling)
+JavaScript (dynamic behavior)
+Installation and Setup
+Clone the repository:
+git clone <repository-url>
+Install dependencies:
+npm install
+Run the development server:
+npm run dev
+Access the app at http://localhost:3000.
+Future Enhancements
+Integration with a database for persistent storage.
+Add additional input types and configurations.
+Enhance UI/UX with animations and additional customizations.
+This summary gives a clear overview of your project for anyone viewing your README.md. Let me know if you want to customize it further!
