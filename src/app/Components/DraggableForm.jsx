@@ -131,7 +131,7 @@ const DraggableForm = () => {
                         Preview
                     </Button>
                 </div>
-                <div className="flex flex-col w-full p-6 gap-8 h-[calc(100vh-122px)] overflow-y-scroll no-scrollbar">
+                <div className="flex flex-col w-full p-6 gap-8 h-[calc(100vh-122px)] overflow-y-scroll no-scrollbar items-center">
                     <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
                         <SortableContext items={fields} strategy={verticalListSortingStrategy}>
                             {fields.map((field) => (
@@ -144,7 +144,7 @@ const DraggableForm = () => {
                             ))}
                         </SortableContext>
                     </DndContext>
-                    <Button type="secondary" onClick={handleAddField} className="h-8">
+                    <Button type="secondary" onClick={handleAddField} className="h-8 max-w-56">
                         + Add Question
                     </Button>
                 </div>
