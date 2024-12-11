@@ -16,11 +16,11 @@ const Input = ({ field, onFieldUpdate, isSubmitted }) => {
     };
 
     const typeOptions = [
-        { value: "short", label: "Short Answer", icon: "A" },
-        { value: "long", label: "Long Answer", icon: "B" },
-        { value: "single", label: "Single Select", icon: "C" },
-        { value: "url", label: "URL", icon: "D" },
-        { value: "date", label: "Date", icon: "E" },
+        { value: "short", label: "Short Answer", icon: "/AIcon.svg" },
+        { value: "long", label: "Long Answer", icon: "/BIcon.svg" },
+        { value: "single", label: "Single Select", icon: "/CIcon.svg" },
+        { value: "url", label: "URL", icon: "/DIcon.svg" },
+        { value: "date", label: "Date", icon: "/EIcon.svg" },
     ];
 
     const renderInputField = () => {

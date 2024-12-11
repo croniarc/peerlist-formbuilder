@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { BsChevronDown } from "react-icons/bs";
-
+import Image from "next/image";
 const CustomSelect = ({ type, onTypeChange, typeOptions }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -11,6 +11,7 @@ const CustomSelect = ({ type, onTypeChange, typeOptions }) => {
     };
 
     const selectedOption = typeOptions.find((option) => option.value === type);
+    console.log(selectedOption)
 
     return (
         <div className="relative">
@@ -18,7 +19,7 @@ const CustomSelect = ({ type, onTypeChange, typeOptions }) => {
                 className="flex items-center text-center justify-center p-2 rounded cursor-pointer bg-white"
                 onClick={() => setIsOpen((prev) => !prev)}
             >
-                <span className="text-lg">{selectedOption?.icon}</span>
+                <span className="text-lg"><Image width={20} height={20} src={selectedOption?.icon} alt={selectedOption?.label} /></span>
                 <BsChevronDown className="text-gray-500" />
             </div>
 
@@ -33,7 +34,7 @@ const CustomSelect = ({ type, onTypeChange, typeOptions }) => {
                             onClick={() => handleOptionClick(option)}
                             className="flex items-center p-2 cursor-pointer hover:bg-gray-100 text-black"
                         >
-                            <span className="mr-2">{option.icon}</span>
+                            <span className="mr-2"><Image width={20} height={20} src={option?.icon} alt={option?.label} /></span>
                             <span>{option.label}</span>
                         </li>
                     ))}
