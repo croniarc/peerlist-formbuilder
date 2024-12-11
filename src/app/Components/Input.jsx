@@ -125,14 +125,14 @@ const Input = ({ field, onFieldUpdate, isSubmitted }) => {
         (type === "header" && value);
 
     return (
-        <div ref={setNodeRef} style={style} className="border p-3 w-full shadow bg-white space-y-2 rounded-2xl">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
+        <div ref={setNodeRef} style={style} className="border p-3 w-full shadow bg-white space-y-2 rounded-2xl hover:bg-gray-50 group">
+            <div className="flex items-center justify-between group-hover:bg-gray-50">
+                <div className="flex items-center space-x-2 group-hover:bg-gray-50">
                     <input
                         type="text"
                         value={label}
                         onChange={(e) => onFieldUpdate(id, { label: e.target.value })}
-                        className={`font-medium text-lg focus:outline-none ${isFieldFilled
+                        className={`font-medium text-lg group-hover:bg-gray-50 focus:outline-none ${isFieldFilled
                             ? "text-black"
                             : isSubmitted && !isFieldFilled
                                 ? "text-red-500"
