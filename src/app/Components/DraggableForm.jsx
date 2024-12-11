@@ -34,6 +34,10 @@ const DraggableForm = () => {
             hasError: field.required && !field.value.trim(),
         }));
 
+    const areFieldsValid = () => {
+        return fields.length > 0 && fields.every((field) => field.value.trim() !== "");
+    };
+
     const calculateCompleteness = () => {
         const filledFields = fields.filter((field) => field.value.trim()).length;
         return fields.length > 0 ? Math.round((filledFields / fields.length) * 100) : 0;
@@ -103,7 +107,6 @@ const DraggableForm = () => {
     };
 
     const handlePreviewSubmit = () => {
-        console.log(preview)
         if (preview) {
             setSuccessMessage("Your data has been submitted.");
             setFields(fields.map((field) => ({ ...field, value: "" })));
@@ -125,7 +128,7 @@ const DraggableForm = () => {
                     <Button
                         type="secondary"
                         onClick={() => setIsPreviewOpen(true)}
-                        disabled={!fields.length}
+                        disabled={areFieldsValid() ? false : true}
                         className="w-28 h-8"
                     >
                         Preview
