@@ -1,4 +1,4 @@
-Draggable Form Builder
+Draggable Form Builder live link :- https://peerlist-formbuilder.vercel.app/
 A dynamic form builder application with drag-and-drop capabilities, developed using Next.js, React, @dnd-kit, and TailwindCSS. This project allows users to create, preview, and save customizable forms with ease.
 
 Features
@@ -41,7 +41,7 @@ TailwindCSS (responsive styling)
 JavaScript (dynamic behavior)
 Installation and Setup
 Clone the repository:
-git clone <repository-url>
+git clone https://github.com/croniarc/peerlist-formbuilder
 Install dependencies:
 npm install
 Run the development server:
