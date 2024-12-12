@@ -12,6 +12,7 @@ const Input = ({ field, onFieldUpdate, isSubmitted }) => {
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
+        touchAction: "none",
     };
 
     const typeOptions = [
